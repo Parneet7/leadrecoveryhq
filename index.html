@@ -163,6 +163,13 @@ em { font-style: italic; }
 .manifesto__qs li { display: flex; gap: 32px; align-items: baseline; padding: 28px 0; border-bottom: 1px solid rgba(244, 236, 225, 0.15); transition: padding-left 0.4s ease; }
 .manifesto__qs li:hover { padding-left: 20px; }
 .manifesto__qs .qnum { font-family: var(--mono); font-size: 12px; letter-spacing: 0.15em; color: var(--orange); flex-shrink: 0; }
+
+.manifesto__qs li > div { flex: 1; min-width: 0; }
+.manifesto__qs .qdesc { font-family: var(--sans); font-size: clamp(14px, 1.2vw, 17px); line-height: 1.5; color: rgba(244, 236, 225, 0.62); max-width: 680px; margin-top: 14px; font-weight: 300; }
+@media (max-width: 720px) {
+  .manifesto__qs li { gap: 18px; align-items: flex-start; }
+  .manifesto__qs .qdesc { font-size: 14px; margin-top: 12px; }
+}
 .manifesto__qs .qtext { font-family: var(--serif); font-weight: 400; font-size: clamp(24px, 3.5vw, 52px); line-height: 1.1; letter-spacing: -0.02em; color: var(--cream); }
 .manifesto__bridge { font-family: var(--serif); font-style: italic; font-size: clamp(18px, 1.8vw, 24px); color: rgba(244, 236, 225, 0.7); margin-bottom: 80px; max-width: 640px; }
 .manifesto__quote { border-top: 1px solid rgba(244, 236, 225, 0.2); padding-top: 48px; }
@@ -765,11 +772,11 @@ em { font-style: italic; }
     </div>
 
     <ol class="manifesto__qs">
-      <li><span class="qnum">01</span><span class="qtext">What happens?</span></li>
-      <li><span class="qnum">02</span><span class="qtext">Who does it?</span></li>
-      <li><span class="qnum">03</span><span class="qtext">Where does it break?</span></li>
-      <li><span class="qnum">04</span><span class="qtext">Why does it keep breaking?</span></li>
-      <li><span class="qnum">05</span><span class="qtext">What should happen instead?</span></li>
+      <li><span class="qnum">01</span><div><span class="qtext">What happens?</span><p class="qdesc">We map what actually happens — not what the process is supposed to look like.</p></div></li>
+      <li><span class="qnum">02</span><div><span class="qtext">Who does it?</span><p class="qdesc">We identify who owns each step, decision and handoff.</p></div></li>
+      <li><span class="qnum">03</span><div><span class="qtext">Where does it break?</span><p class="qdesc">We find the point where leads, time, money or information gets lost.</p></div></li>
+      <li><span class="qnum">04</span><div><span class="qtext">Why does it keep breaking?</span><p class="qdesc">We look past the symptom to the system causing it.</p></div></li>
+      <li><span class="qnum">05</span><div><span class="qtext">What should happen instead?</span><p class="qdesc">We design the process that should happen — then decide where AI belongs.</p></div></li>
     </ol>
 
     <p class="manifesto__bridge">
