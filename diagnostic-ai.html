@@ -61,14 +61,26 @@ input,textarea,select{width:100%;border:1px solid var(--line);background:var(--c
 </section></main><footer><div class="wrap footer"><span>LEAKFIX © 2026</span><span>NO PRESCRIPTION BEFORE THE DIAGNOSIS.</span></div></footer>
 
 <script>
-const form=document.getElementById('diag'), steps=[...document.querySelectorAll('.step')], bars=[...document.querySelectorAll('.bar')], next=document.getElementById('next'), back=document.getElementById('back'), success=document.getElementById('success'); let current=0;
-function show(n){steps.forEach((s,i)=>s.classList.toggle('active',i===n));bars.forEach((b,i)=>b.classList.toggle('on',i<=n));back.disabled=n===0;next.textContent=n===steps.length-1?'Prepare diagnostic →':'Continue →';window.scrollTo({top:0,behavior:'smooth'});}
 const WEBHOOK_URL='https://hooks.airtable.com/workflows/v1/genericWebhook/appNxEdghiejtKq6f/wflTY5jF7AXFy9mSG/wtrRwIx79F01ctwPZ';
-next.addEventListener('click',async()=>{if(current<steps.length-1){const required=[...steps[current].querySelectorAll('[required]')];for(const el of required){if(!el.reportValidity())return}current++;show(current)}else{if(!form.reportValidity())return;const fd=new FormData(form);const payload={businessName:fd.get('business'),ownerName:fd.get('name'),email:fd.get('email'),website:fd.get('website'),scaleBarrier:fd.get('scaleBarrier'),techsProblem:fd.get('techsProblem'),aiNotForYou:fd.get('aiNotForYou'),dreamAI:fd.get('dreamAI'),adsLeadGen:fd.get('adsLeadGen'),experts:fd.get('experts'),workflow:fd.get('workflow'),frequency:fd.get('frequency'),estimatedCost:fd.get('cost'),consequence:fd.get('consequence'),loomLink:fd.get('evidence'),stopDoing:fd.get('stopDoing'),notes:fd.get('notes')};next.disabled=true;next.textContent='Sending…';try{const res=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(!res.ok)throw new Error('Submission failed');form.style.display='none';document.querySelector('.progress').style.display='none';document.querySelector('.actions').style.display='none';success.classList.add('active')}catch(e){next.disabled=false;next.textContent='Try again →';alert('We could not send your diagnostic yet. Please try again.')}}});
-back.addEventListener('click',()=>{if(current>0){current--;show(current)}});
+const DIAGNOSTIC_TYPE="Why isn't AI working for your business?";
+document.getElementById('diag').addEventListener('submit',function(e){
+  e.preventDefault();
+  const form=e.currentTarget;
+  const button=form.querySelector('button[type="submit"]');
+  button.disabled=true;
+  button.textContent='Sending…';
+  const data=new URLSearchParams(new FormData(form));
+  data.append('diagnosticType',DIAGNOSTIC_TYPE);
+  fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:data,mode:'no-cors'})
+    .finally(function(){
+      form.style.display='none';
+      const progress=document.querySelector('.progress');
+      if(progress) progress.style.display='none';
+      const actions=document.querySelector('.actions');
+      if(actions) actions.style.display='none';
+      document.getElementById('success').classList.add('active');
+    });
+});
 </script>
 </body>
 </html>
-<script>
-const WEBHOOK_URL='https://hooks.airtable.com/workflows/v1/genericWebhook/appNxEdghiejtKq6f/wflTY5jF7AXFy9mSG/wtrRwIx79F01ctwPZ';
-document.getElementById('diag').addEventListener('submit',async(e)=>{e.preventDefault();const f=new FormData(e.target),p={diagnosticType:"Why isn't AI working for your business?",businessName:f.get('business'),ownerName:f.get('name'),email:f.get('email'),website:f.get('website'),q1:f.get('q1'),q2:f.get('q2'),q3:f.get('q3'),q4:f.get('q4'),q5:f.get('q5'),q6:f.get('q6'),evidence:f.get('evidence')};const b=e.target.querySelector('button');b.disabled=true;b.textContent='Sending…';try{const r=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(p)});if(!r.ok)throw 0;e.target.style.display='none';document.getElementById('success').classList.add('active')}catch(x){b.disabled=false;b.textContent='Try again →';alert('The diagnostic system is not connected yet. Please try again shortly.')}});</script></body></html>
