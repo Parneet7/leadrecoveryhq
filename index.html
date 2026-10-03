@@ -998,3 +998,35 @@ em { font-style: italic; }
         <p>No endless meetings.<br />No daily chasing.<br />No artificial targets just to keep people busy.</p>
       </div>
       <div class="proof__col">
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.leak__head').forEach(function (head) {
+    head.addEventListener('click', function () {
+      const leak = head.closest('.leak');
+      if (!leak) return;
+      const wasOpen = leak.classList.contains('is-open');
+      document.querySelectorAll('.leak.is-open').forEach(function (item) {
+        item.classList.remove('is-open');
+      });
+      if (!wasOpen) leak.classList.add('is-open');
+    });
+  });
+
+  const navToggle = document.getElementById('navToggle');
+  const nav = document.getElementById('nav');
+  if (navToggle && nav) {
+    navToggle.addEventListener('click', function () {
+      const isOpen = navToggle.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+      nav.classList.toggle('menu-open', isOpen);
+    });
+  }
+
+  window.addEventListener('scroll', function () {
+    if (nav) nav.classList.toggle('is-scrolled', window.scrollY > 20);
+  });
+});
+</script>
+
+</body>
+</html>
