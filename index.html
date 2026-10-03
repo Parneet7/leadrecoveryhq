@@ -1015,6 +1015,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const isOpen = navToggle.classList.toggle('is-open');
       navToggle.setAttribute('aria-expanded', String(isOpen));
       nav.classList.toggle('menu-open', isOpen);
+      const links = nav.querySelector('.nav__links');
+      if (links) links.classList.toggle('is-open', isOpen);
     });
   }
 
