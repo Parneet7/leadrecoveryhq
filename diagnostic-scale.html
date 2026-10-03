@@ -63,49 +63,23 @@ input,textarea,select{width:100%;border:1px solid var(--line);background:var(--c
 <script>
 const WEBHOOK_URL='https://hooks.airtable.com/workflows/v1/genericWebhook/appNxEdghiejtKq6f/wflTY5jF7AXFy9mSG/wtrRwIx79F01ctwPZ';
 const DIAGNOSTIC_TYPE="Why can't your business become a million-dollar business?";
-const form=document.getElementById('diag');
-const success=document.getElementById('success');
-form.addEventListener('submit',function(e){
+document.getElementById('diag').addEventListener('submit',function(e){
   e.preventDefault();
-  if(!form.reportValidity()) return;
+  const form=e.currentTarget;
   const button=form.querySelector('button[type="submit"]');
   button.disabled=true;
   button.textContent='Sending…';
-
-  const frameName='leakfix_submit_frame_'+Date.now();
-  const iframe=document.createElement('iframe');
-  iframe.name=frameName;
-  iframe.style.display='none';
-  document.body.appendChild(iframe);
-
-  const outbound=document.createElement('form');
-  outbound.method='POST';
-  outbound.action=WEBHOOK_URL;
-  outbound.target=frameName;
-  outbound.style.display='none';
-
-  const data=new FormData(form);
+  const data=new URLSearchParams(new FormData(form));
   data.append('diagnosticType',DIAGNOSTIC_TYPE);
-
-  for(const [key,value] of data.entries()){
-    const input=document.createElement('input');
-    input.type='hidden';
-    input.name=key;
-    input.value=value;
-    outbound.appendChild(input);
-  }
-
-  document.body.appendChild(outbound);
-  outbound.submit();
-
-  form.style.display='none';
-  const progress=document.querySelector('.progress');
-  if(progress) progress.style.display='none';
-  const actions=document.querySelector('.actions');
-  if(actions) actions.style.display='none';
-  success.classList.add('active');
-
-  setTimeout(()=>{outbound.remove();iframe.remove()},10000);
+  fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'},body:data,mode:'no-cors'})
+    .finally(function(){
+      form.style.display='none';
+      const progress=document.querySelector('.progress');
+      if(progress) progress.style.display='none';
+      const actions=document.querySelector('.actions');
+      if(actions) actions.style.display='none';
+      document.getElementById('success').classList.add('active');
+    });
 });
 </script>
 </body>
