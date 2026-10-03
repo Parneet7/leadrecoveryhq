@@ -44,75 +44,71 @@ input,textarea,select{width:100%;border:1px solid var(--line);background:var(--c
 <form id="diag">
 <section class="step active" data-step="1">
 <div class="stepno">01 / HISTORY</div>
-<h2>What is happening?</h2>
-<p class="intro">Start with the part of the business that keeps landing back on your desk.</p>
+<h2>Why can't your business scale?</h2>
+<p class="intro">Don't give us the polished answer. Tell us what keeps you stuck, what keeps landing back on your desk, or what you feel should be easier by now.</p>
 <div class="grid">
 <div class="field"><label>Business name <span class="req">*</span></label><input name="business" required placeholder="e.g. Smith Heating & Air"></div>
 <div class="field"><label>Your name <span class="req">*</span></label><input name="name" required placeholder="Your name"></div>
 <div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required placeholder="you@company.com"></div>
 <div class="field"><label>Website</label><input name="website" placeholder="https://..."></div>
-<div class="field full"><label>What is the biggest problem right now? <span class="req">*</span></label><textarea name="problem" required placeholder="Tell us what keeps happening. Don't polish it."></textarea></div>
+<div class="field full"><label>Why can't your business scale? <span class="req">*</span></label><textarea name="scaleBarrier" required placeholder="What feels like the ceiling right now?"></textarea></div>
 </div>
 </section>
 
 <section class="step" data-step="2">
 <div class="stepno">02 / DIAGNOSIS</div>
-<h2>Where does it break?</h2>
-<p class="intro">A symptom is useful. The workflow behind it is better.</p>
-<div class="field"><label>Which area is closest to the problem?</label></div>
-<div class="choicegrid">
-<div class="choice"><input id="c1" type="checkbox" name="area" value="Leads & calls"><label for="c1">Leads & calls</label></div>
-<div class="choice"><input id="c2" type="checkbox" name="area" value="Follow-up"><label for="c2">Follow-up</label></div>
-<div class="choice"><input id="c3" type="checkbox" name="area" value="Sales / conversion"><label for="c3">Sales / conversion</label></div>
-<div class="choice"><input id="c4" type="checkbox" name="area" value="Customer retention"><label for="c4">Customer retention</label></div>
-<div class="choice"><input id="c5" type="checkbox" name="area" value="Team / accountability"><label for="c5">Team / accountability</label></div>
-<div class="choice"><input id="c6" type="checkbox" name="area" value="Operations / workflow"><label for="c6">Operations / workflow</label></div>
-<div class="choice"><input id="c7" type="checkbox" name="area" value="AI / automation"><label for="c7">AI / automation</label></div>
-<div class="choice"><input id="c8" type="checkbox" name="area" value="Other"><label for="c8">Something else</label></div>
-</div>
-<div class="field" style="margin-top:25px"><label>What happens from start to finish?</label><textarea name="workflow" placeholder="Example: Customer calls → office answers → quote is sent → ..."></textarea><small>Bullet points are perfect.</small></div>
+<h2>Are your techs really the problem?</h2>
+<p class="intro">Or are they simply operating inside a system that makes the wrong thing easier? Tell us what you see — and what you suspect is underneath it.</p>
+<div class="field full"><label>Are your techs really the problem? <span class="req">*</span></label><textarea name="techsProblem" required placeholder="What are they doing, not doing, or repeatedly getting wrong? And what makes you think that's the root cause?"></textarea></div>
+<div class="field full" style="margin-top:25px"><label>Why do you think AI isn't for you? <span class="req">*</span></label><textarea name="aiNotForYou" required placeholder="Too expensive? Too complicated? Your team won't use it? You tried it already? You don't trust it? Tell us honestly."></textarea></div>
 </section>
 
 <section class="step" data-step="3">
 <div class="stepno">03 / PROGNOSIS</div>
-<h2>What is the leak costing you?</h2>
-<p class="intro">It doesn't need to be exact. We're looking for the consequence of leaving the problem unchanged.</p>
-<div class="grid">
-<div class="field"><label>How often does this happen?</label><select name="frequency"><option value="">Choose one</option><option>Daily</option><option>Several times a week</option><option>Weekly</option><option>Monthly</option><option>Not sure</option></select></div>
-<div class="field"><label>What does it cost you most?</label><select name="cost"><option value="">Choose one</option><option>Lost revenue</option><option>Lost time</option><option>Team frustration</option><option>Customer experience</option><option>Owner dependency</option><option>I'm not sure</option></select></div>
-<div class="field full"><label>What happens if nothing changes for the next 12 months?</label><textarea name="consequence" placeholder="More chasing? More missed jobs? More work for you?"></textarea></div>
-</div>
+<h2>What would you change if the business could think with you?</h2>
+<p class="intro">This is where we want the answer you normally wouldn't put on a business form.</p>
+<div class="field full"><label>If you could have your dream AI, what would it do? <span class="req">*</span></label><textarea name="dreamAI" required placeholder="Forget what software exists. If you could hand one part of the business to an AI that actually understood you, what would you give it?"></textarea></div>
+<div class="field full" style="margin-top:25px"><label>Why are you spending on ads — and what's actually working? <span class="req">*</span></label><textarea name="adsLeadGen" required placeholder="What are you paying for, where do leads come from, and what happens after they arrive?"></textarea></div>
+<div class="field full" style="margin-top:25px"><label>What happens if nothing changes for the next 12 months?</label><textarea name="consequence" placeholder="More missed jobs? More owner involvement? More ad spend? More frustration?"></textarea></div>
 </section>
 
 <section class="step" data-step="4">
 <div class="stepno">04 / TREATMENT</div>
-<h2>Show us the messy version.</h2>
-<p class="intro">This is the useful part. Send whatever already exists. A spreadsheet, screenshot, SOP, Loom link, email, photo, or even a rough explanation.</p>
-<div class="grid">
-<div class="field full"><label>Paste a link to your workflow / Loom / document</label><input name="evidence" placeholder="https://..."></div>
-<div class="field full"><label>What would you love to stop doing yourself?</label><textarea name="dream" placeholder="The thing you wish your business could just handle..."></textarea></div>
-<div class="field full"><label>Anything else we should know?</label><textarea name="notes" placeholder="Context, tools you already use, what you've tried, etc."></textarea></div>
+<h2>Have you worked with coaches, consultants, or experts before?</h2>
+<p class="intro">We want to understand what you've already tried — and what made you believe it worked or didn't.</p>
+<div class="field full"><label>Tell us about that experience. <span class="req">*</span></label><textarea name="experts" required placeholder="Who did you work with? What were you promised? What changed? What didn't?"></textarea></div>
+
+<div class="showbox" style="margin-top:28px">
+<strong>ENOUGH ABOUT THE PROBLEM. SHOW US HOW YOU ACTUALLY WORK.</strong>
+<p>The answers above tell us what you feel. This tells us what is actually happening.</p>
 </div>
-<div class="showbox"><strong>We decide the treatment after the diagnosis.</strong><p>It might be a workflow. A tracker. An SOP. Training. Automation. AI. Or something much simpler.</p></div>
+
+<div class="grid" style="margin-top:28px">
+<div class="field full"><label>What happens from start to finish?</label><textarea name="workflow" placeholder="Customer calls → office answers → quote is sent → follow-up → job booked → ..."></textarea><small>Bullet points are perfect. Messy is useful.</small></div>
+<div class="field"><label>How often does the problem happen?</label><select name="frequency"><option value="">Choose one</option><option>Daily</option><option>Several times a week</option><option>Weekly</option><option>Monthly</option><option>Not sure</option></select></div>
+<div class="field"><label>What does it cost you most?</label><select name="cost"><option value="">Choose one</option><option>Lost revenue</option><option>Lost time</option><option>Team frustration</option><option>Customer experience</option><option>Owner dependency</option><option>I'm not sure</option></select></div>
+<div class="field full"><label>Paste a link to your workflow / Loom / document</label><input name="evidence" placeholder="https://..."></div>
+<div class="field full"><label>What would you love to stop doing yourself?</label><textarea name="stopDoing" placeholder="The thing you wish your business could just handle without you..."></textarea></div>
+<div class="field full"><label>Anything else we should know?</label><textarea name="notes" placeholder="Tools, screenshots, spreadsheets, past attempts, context — anything useful."></textarea></div>
+</div>
+
+<div class="showbox"><strong>WE DECIDE THE TREATMENT AFTER THE DIAGNOSIS.</strong><p>It might be a workflow. A tracker. An SOP. Training. Automation. AI. Or something much simpler.</p></div>
 </section>
 
 <div class="actions">
 <button type="button" class="btn" id="back" disabled>← Back</button>
-<span class="privacy">Your information is used to review your business request.</span>
+<span class="privacy">Your answers become part of the LeakFix business diagnosis.</span>
 <button type="button" class="btn primary" id="next">Continue →</button>
 </div>
 </form>
 
 <div class="success" id="success">
-<div class="eyebrow">REQUEST READY</div>
+<div class="eyebrow">DIAGNOSTIC RECEIVED</div>
 <h2>That's enough to start.</h2>
-<p>Your diagnostic has been prepared. Tap below to send it to LeakFix. We'll review the messy version first.</p>
-<a class="btn primary" id="send" href="#">Send my diagnostic →</a>
-<p style="font-size:12px;margin-top:18px">If your email app doesn't open, copy the summary shown in the email draft and send it to us.</p>
+<p>You've given us the version most business owners never stop to write down. We'll start with what you told us — then look for the leak underneath it.</p>
 </div>
 </div>
 </section>
-</main>
 
 <footer><div class="wrap footer"><span>LEAKFIX © 2026</span><span>NO PRESCRIPTION BEFORE THE DIAGNOSIS.</span></div></footer>
 
@@ -120,7 +116,7 @@ input,textarea,select{width:100%;border:1px solid var(--line);background:var(--c
 const form=document.getElementById('diag'), steps=[...document.querySelectorAll('.step')], bars=[...document.querySelectorAll('.bar')], next=document.getElementById('next'), back=document.getElementById('back'), success=document.getElementById('success'); let current=0;
 function show(n){steps.forEach((s,i)=>s.classList.toggle('active',i===n));bars.forEach((b,i)=>b.classList.toggle('on',i<=n));back.disabled=n===0;next.textContent=n===steps.length-1?'Prepare diagnostic →':'Continue →';window.scrollTo({top:0,behavior:'smooth'});}
 const WEBHOOK_URL='https://hooks.airtable.com/workflows/v1/genericWebhook/appNxEdghiejtKq6f/wflTY5jF7AXFy9mSG/wtrRwIx79F01ctwPZ';
-next.addEventListener('click',async()=>{if(current<steps.length-1){const required=[...steps[current].querySelectorAll('[required]')];for(const el of required){if(!el.reportValidity())return}current++;show(current)}else{if(!form.reportValidity())return;const fd=new FormData(form);const payload={businessName:fd.get('business'),ownerName:fd.get('name'),email:fd.get('email'),website:fd.get('website'),biggestProblem:fd.get('problem'),problemArea:[...document.querySelectorAll('input[name="area"]:checked')].map(x=>x.value).join(', '),workflow:fd.get('workflow'),frequency:fd.get('frequency'),estimatedCost:fd.get('cost'),consequence:fd.get('consequence'),loomLink:fd.get('evidence'),stopDoing:fd.get('dream'),notes:fd.get('notes')};next.disabled=true;next.textContent='Sending…';try{const res=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(!res.ok)throw new Error('Submission failed');form.style.display='none';document.querySelector('.progress').style.display='none';document.querySelector('.actions').style.display='none';success.classList.add('active')}catch(e){next.disabled=false;next.textContent='Try again →';alert('We could not send your diagnostic yet. Please try again.')}}});
+next.addEventListener('click',async()=>{if(current<steps.length-1){const required=[...steps[current].querySelectorAll('[required]')];for(const el of required){if(!el.reportValidity())return}current++;show(current)}else{if(!form.reportValidity())return;const fd=new FormData(form);const payload={businessName:fd.get('business'),ownerName:fd.get('name'),email:fd.get('email'),website:fd.get('website'),scaleBarrier:fd.get('scaleBarrier'),techsProblem:fd.get('techsProblem'),aiNotForYou:fd.get('aiNotForYou'),dreamAI:fd.get('dreamAI'),adsLeadGen:fd.get('adsLeadGen'),experts:fd.get('experts'),workflow:fd.get('workflow'),frequency:fd.get('frequency'),estimatedCost:fd.get('cost'),consequence:fd.get('consequence'),loomLink:fd.get('evidence'),stopDoing:fd.get('stopDoing'),notes:fd.get('notes')};next.disabled=true;next.textContent='Sending…';try{const res=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(!res.ok)throw new Error('Submission failed');form.style.display='none';document.querySelector('.progress').style.display='none';document.querySelector('.actions').style.display='none';success.classList.add('active')}catch(e){next.disabled=false;next.textContent='Try again →';alert('We could not send your diagnostic yet. Please try again.')}}});
 back.addEventListener('click',()=>{if(current>0){current--;show(current)}});
 </script>
 </body>
