@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeakFix — Business Diagnostic</title>
+<meta name="description" content="Show LeakFix how your business actually works. We'll find the friction before we prescribe the fix.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,sans-serif;color:#0f1e3d;background:#f4ece1;line-height:1.6;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}.wrap{max-width:1120px;margin:auto;padding:0 24px}
+:root{--cream:#f4ece1;--paper:#faf5ec;--navy:#0f1e3d;--soft:#2a3d63;--orange:#d24b1f;--mustard:#c99a3a;--line:rgba(15,30,61,.16);--serif:Fraunces,Georgia,serif;--mono:"JetBrains Mono",monospace}
+.nav{height:78px;border-bottom:1px solid var(--line);display:flex;align-items:center}.navin{width:100%;max-width:1120px;margin:auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}.logo{font:500 14px var(--mono);letter-spacing:.08em;display:flex;gap:10px;align-items:center}.dot{width:11px;height:11px;background:var(--orange);border-radius:50%;box-shadow:0 0 0 5px rgba(210,75,31,.12)}.back{font-size:14px;color:var(--soft)}
+.hero{padding:clamp(70px,10vw,130px) 0 75px}.eyebrow{font:500 11px var(--mono);letter-spacing:.2em;color:var(--orange);text-transform:uppercase}.hero h1{font:400 clamp(48px,8vw,92px) var(--serif);line-height:.95;letter-spacing:-.04em;max-width:850px;margin:24px 0}.hero h1 em{color:var(--orange);font-style:italic}.hero p{font-size:clamp(18px,2vw,23px);color:var(--soft);max-width:650px}.note{margin-top:28px;font:11px var(--mono);letter-spacing:.08em;color:var(--soft);text-transform:uppercase}
+.panel{background:var(--paper);border:1px solid var(--line);padding:clamp(28px,5vw,58px);margin-bottom:60px;box-shadow:0 25px 60px -45px rgba(15,30,61,.35)}
+.progress{display:flex;gap:6px;margin-bottom:45px}.bar{height:3px;background:var(--line);flex:1}.bar.on{background:var(--orange)}
+.step{display:none}.step.active{display:block}.stepno{font:11px var(--mono);letter-spacing:.18em;color:var(--orange);text-transform:uppercase;margin-bottom:14px}.step h2{font:400 clamp(30px,4.5vw,52px) var(--serif);line-height:1.03;letter-spacing:-.025em;margin-bottom:14px}.step .intro{color:var(--soft);max-width:650px;margin-bottom:34px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{margin-bottom:20px}.field.full{grid-column:1/-1}.field label{display:block;font-size:13px;font-weight:600;margin-bottom:8px}.field small{display:block;color:var(--soft);font-size:12px;margin-top:6px}.req{color:var(--orange)}
+input,textarea,select{width:100%;border:1px solid var(--line);background:var(--cream);color:var(--navy);padding:14px 15px;outline:none;border-radius:2px}textarea{min-height:125px;resize:vertical}input:focus,textarea:focus,select:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(210,75,31,.08)}
+.choicegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.choice input{display:none}.choice label{display:block;border:1px solid var(--line);padding:15px;background:var(--cream);cursor:pointer;transition:.2s;height:100%;font-size:14px}.choice input:checked+label{border-color:var(--orange);background:#f7e4d9}
+.actions{display:flex;justify-content:space-between;align-items:center;margin-top:35px;padding-top:24px;border-top:1px solid var(--line);gap:15px}.btn{border:1px solid var(--navy);padding:14px 22px;border-radius:100px;background:transparent;color:var(--navy);cursor:pointer}.btn.primary{background:var(--navy);color:var(--cream)}.btn.primary:hover{background:var(--orange);border-color:var(--orange)}.btn:disabled{opacity:.35;cursor:not-allowed}.privacy{font:10px var(--mono);letter-spacing:.06em;color:var(--soft);text-transform:uppercase}
+.success{display:none;text-align:center;padding:55px 10px}.success.active{display:block}.success h2{font:400 clamp(38px,6vw,68px) var(--serif);line-height:1;margin:18px 0}.success p{max-width:620px;margin:0 auto 24px;color:var(--soft)}
+.showbox{border:1px dashed var(--line-strong);padding:22px;margin-top:25px;background:var(--cream)}.showbox strong{display:block;font-family:var(--serif);font-size:24px;margin-bottom:6px}.showbox p{font-size:14px;color:var(--soft)}
+.footer{border-top:1px solid var(--line);padding:30px 0 50px;font:11px var(--mono);letter-spacing:.08em;color:var(--soft);display:flex;justify-content:space-between}
+@media(max-width:700px){.grid,.choicegrid{grid-template-columns:1fr}.field.full{grid-column:auto}.hero{padding-top:60px}.panel{padding:24px 18px}.actions{align-items:stretch;flex-direction:column-reverse}.btn{width:100%}.footer{flex-direction:column;gap:8px}.back{font-size:12px}}
+</style>
+</head>
+<body>
+<header class="nav"><div class="navin"><a class="logo" href="index.html"><span class="dot"></span>LEAKFIX</a><a class="back" href="index.html">← Back to LeakFix</a></div></header>
+
+<main>
+<section class="hero"><div class="wrap">
+<span class="eyebrow">BUSINESS DIAGNOSTIC</span>
+<h1>Don't tell us the <em>perfect</em> version.</h1>
+<p>Show us how your business actually works. The messy version is usually where the leak is hiding.</p>
+<div class="note">No prescription before the diagnosis.</div>
+</div></section>
+
+<section class="wrap">
+<div class="panel">
+<div class="progress"><span class="bar on"></span><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+
+<form id="diag">
+<section class="step active" data-step="1">
+<div class="stepno">01 / HISTORY</div>
+<h2>What is happening?</h2>
+<p class="intro">Start with the part of the business that keeps landing back on your desk.</p>
+<div class="grid">
+<div class="field"><label>Business name <span class="req">*</span></label><input name="business" required placeholder="e.g. Smith Heating & Air"></div>
+<div class="field"><label>Your name <span class="req">*</span></label><input name="name" required placeholder="Your name"></div>
+<div class="field"><label>Email <span class="req">*</span></label><input type="email" name="email" required placeholder="you@company.com"></div>
+<div class="field"><label>Website</label><input name="website" placeholder="https://..."></div>
+<div class="field full"><label>What is the biggest problem right now? <span class="req">*</span></label><textarea name="problem" required placeholder="Tell us what keeps happening. Don't polish it."></textarea></div>
+</div>
+</section>
+
+<section class="step" data-step="2">
+<div class="stepno">02 / DIAGNOSIS</div>
+<h2>Where does it break?</h2>
+<p class="intro">A symptom is useful. The workflow behind it is better.</p>
+<div class="field"><label>Which area is closest to the problem?</label></div>
+<div class="choicegrid">
+<div class="choice"><input id="c1" type="checkbox" name="area" value="Leads & calls"><label for="c1">Leads & calls</label></div>
+<div class="choice"><input id="c2" type="checkbox" name="area" value="Follow-up"><label for="c2">Follow-up</label></div>
+<div class="choice"><input id="c3" type="checkbox" name="area" value="Sales / conversion"><label for="c3">Sales / conversion</label></div>
+<div class="choice"><input id="c4" type="checkbox" name="area" value="Customer retention"><label for="c4">Customer retention</label></div>
+<div class="choice"><input id="c5" type="checkbox" name="area" value="Team / accountability"><label for="c5">Team / accountability</label></div>
+<div class="choice"><input id="c6" type="checkbox" name="area" value="Operations / workflow"><label for="c6">Operations / workflow</label></div>
+<div class="choice"><input id="c7" type="checkbox" name="area" value="AI / automation"><label for="c7">AI / automation</label></div>
+<div class="choice"><input id="c8" type="checkbox" name="area" value="Other"><label for="c8">Something else</label></div>
+</div>
+<div class="field" style="margin-top:25px"><label>What happens from start to finish?</label><textarea name="workflow" placeholder="Example: Customer calls → office answers → quote is sent → ..."></textarea><small>Bullet points are perfect.</small></div>
+</section>
+
+<section class="step" data-step="3">
+<div class="stepno">03 / PROGNOSIS</div>
+<h2>What is the leak costing you?</h2>
+<p class="intro">It doesn't need to be exact. We're looking for the consequence of leaving the problem unchanged.</p>
+<div class="grid">
+<div class="field"><label>How often does this happen?</label><select name="frequency"><option value="">Choose one</option><option>Daily</option><option>Several times a week</option><option>Weekly</option><option>Monthly</option><option>Not sure</option></select></div>
+<div class="field"><label>What does it cost you most?</label><select name="cost"><option value="">Choose one</option><option>Lost revenue</option><option>Lost time</option><option>Team frustration</option><option>Customer experience</option><option>Owner dependency</option><option>I'm not sure</option></select></div>
+<div class="field full"><label>What happens if nothing changes for the next 12 months?</label><textarea name="consequence" placeholder="More chasing? More missed jobs? More work for you?"></textarea></div>
+</div>
+</section>
+
+<section class="step" data-step="4">
+<div class="stepno">04 / TREATMENT</div>
+<h2>Show us the messy version.</h2>
+<p class="intro">This is the useful part. Send whatever already exists. A spreadsheet, screenshot, SOP, Loom link, email, photo, or even a rough explanation.</p>
+<div class="grid">
+<div class="field full"><label>Paste a link to your workflow / Loom / document</label><input name="evidence" placeholder="https://..."></div>
+<div class="field full"><label>What would you love to stop doing yourself?</label><textarea name="dream" placeholder="The thing you wish your business could just handle..."></textarea></div>
+<div class="field full"><label>Anything else we should know?</label><textarea name="notes" placeholder="Context, tools you already use, what you've tried, etc."></textarea></div>
+</div>
+<div class="showbox"><strong>We decide the treatment after the diagnosis.</strong><p>It might be a workflow. A tracker. An SOP. Training. Automation. AI. Or something much simpler.</p></div>
+</section>
+
+<div class="actions">
+<button type="button" class="btn" id="back" disabled>← Back</button>
+<span class="privacy">Your information is used to review your business request.</span>
+<button type="button" class="btn primary" id="next">Continue →</button>
+</div>
+</form>
+
+<div class="success" id="success">
+<div class="eyebrow">REQUEST READY</div>
+<h2>That's enough to start.</h2>
+<p>Your diagnostic has been prepared. Tap below to send it to LeakFix. We'll review the messy version first.</p>
+<a class="btn primary" id="send" href="#">Send my diagnostic →</a>
+<p style="font-size:12px;margin-top:18px">If your email app doesn't open, copy the summary shown in the email draft and send it to us.</p>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap footer"><span>LEAKFIX © 2026</span><span>NO PRESCRIPTION BEFORE THE DIAGNOSIS.</span></div></footer>
+
+<script>
+const form=document.getElementById('diag'), steps=[...document.querySelectorAll('.step')], bars=[...document.querySelectorAll('.bar')], next=document.getElementById('next'), back=document.getElementById('back'), success=document.getElementById('success'); let current=0;
+function show(n){steps.forEach((s,i)=>s.classList.toggle('active',i===n));bars.forEach((b,i)=>b.classList.toggle('on',i<=n));back.disabled=n===0;next.textContent=n===steps.length-1?'Prepare diagnostic →':'Continue →';window.scrollTo({top:0,behavior:'smooth'});}
+const WEBHOOK_URL='https://hooks.airtable.com/workflows/v1/genericWebhook/appNxEdghiejtKq6f/wflTY5jF7AXFy9mSG/wtrRwIx79F01ctwPZ';
+next.addEventListener('click',async()=>{if(current<steps.length-1){const required=[...steps[current].querySelectorAll('[required]')];for(const el of required){if(!el.reportValidity())return}current++;show(current)}else{if(!form.reportValidity())return;const fd=new FormData(form);const payload={businessName:fd.get('business'),ownerName:fd.get('name'),email:fd.get('email'),website:fd.get('website'),biggestProblem:fd.get('problem'),problemArea:[...document.querySelectorAll('input[name="area"]:checked')].map(x=>x.value).join(', '),workflow:fd.get('workflow'),frequency:fd.get('frequency'),estimatedCost:fd.get('cost'),consequence:fd.get('consequence'),loomLink:fd.get('evidence'),stopDoing:fd.get('dream'),notes:fd.get('notes')};next.disabled=true;next.textContent='Sending…';try{const res=await fetch(WEBHOOK_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(!res.ok)throw new Error('Submission failed');form.style.display='none';document.querySelector('.progress').style.display='none';document.querySelector('.actions').style.display='none';success.classList.add('active')}catch(e){next.disabled=false;next.textContent='Try again →';alert('We could not send your diagnostic yet. Please try again.')}}});
+back.addEventListener('click',()=>{if(current>0){current--;show(current)}});
+</script>
+</body>
+</html>
