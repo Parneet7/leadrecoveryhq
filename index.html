@@ -1,91 +1,465 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HVAC Lead Recovery Calculator</title>
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:Inter,Arial,sans-serif;background:#f7f8fa;color:#172033}
-.wrap{max-width:980px;margin:auto;padding:28px 18px 60px}.hero{text-align:center;padding:48px 12px 30px}
-.badge{display:inline-block;padding:7px 12px;border-radius:999px;background:#e9eef5;font-size:13px;font-weight:700}
-h1{font-size:clamp(34px,6vw,58px);line-height:1.05;margin:18px 0 14px}
-.sub{max-width:650px;margin:auto;color:#5d6675;font-size:18px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-.card{background:white;border:1px solid #e1e5ea;border-radius:18px;padding:26px;box-shadow:0 8px 30px #0000000a}
-label{display:block;font-weight:700;margin:16px 0 7px}input{width:100%;padding:13px;border:1px solid #cbd1d9;border-radius:9px;font-size:16px}
-button{width:100%;margin-top:20px;padding:14px;border:0;border-radius:9px;background:#172033;color:white;font-weight:700;font-size:16px;cursor:pointer}
-.result{margin-top:20px;padding:20px;border-radius:12px;background:#f1f4f7}.big{font-size:36px;font-weight:800;margin:5px 0}
-.cta{margin-top:18px;padding:18px;border-radius:12px;border:1px solid #d9dee5}
-.cta a{display:inline-block;margin-top:10px;text-decoration:none;font-weight:700;color:#172033}
-.small{font-size:12px;color:#697383;margin-top:18px;line-height:1.5}
-@media(max-width:700px){.grid{grid-template-columns:1fr}}
-</style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LeakFix — Your business is leaking. You just can't see where.</title>
+<meta name="description" content="LeakFix is a business systems & operations consultancy. We diagnose the leak before we prescribe the fix." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700;9..144,900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div class="wrap">
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#" class="nav__logo">
+      <span class="nav__mark" aria-hidden="true"></span>
+      <span class="nav__word">LEAKFIX</span>
+    </a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#method">The Method</a>
+      <a href="#lab">Fix Lab</a>
+      <a href="#founder">About</a>
+      <a href="#diagnostic" class="nav__cta">Diagnostic</a>
+    </nav>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
 <section class="hero">
-<span class="badge">FREE HVAC TOOL</span>
-<h1>How much revenue could your missed leads be costing you?</h1>
-<p class="sub">Estimate the potential monthly revenue opportunity from missed calls and follow-up gaps — in under 60 seconds.</p>
+  <div class="hero__grid">
+    <div class="hero__left">
+      <div class="hero__eyebrow">
+        <span class="dot"></span>
+        <span>Operations · Systems · AI</span>
+      </div>
+
+      <h1 class="hero__title">
+        <span class="line">YOUR BUSINESS</span>
+        <span class="line">IS <em>LEAKING.</em></span>
+        <span class="line muted">You just can't see where.</span>
+      </h1>
+
+      <div class="hero__body">
+        <p class="hero__lead">Leads. Time. Money. People.</p>
+        <p class="hero__lead sub">
+          Sometimes the leak is a missed call.<br />
+          Sometimes it's your team.<br />
+          Sometimes… <span class="scribble">it's you.</span>
+        </p>
+      </div>
+
+      <div class="hero__cta">
+        <a href="#diagnostic" class="btn btn--primary">
+          <span>Find my leak</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#method" class="btn btn--ghost">Read the method</a>
+      </div>
+    </div>
+
+    <div class="hero__right" aria-hidden="true">
+      <div class="drift">
+        <div class="drift__tag">LEAK DETECTED</div>
+        <svg class="drift__svg" viewBox="0 0 400 480" preserveAspectRatio="xMidYMid meet">
+          <g stroke="#0f1e3d" stroke-opacity="0.14" stroke-width="1">
+            <line x1="40" y1="60" x2="360" y2="60"/>
+            <line x1="40" y1="140" x2="360" y2="140"/>
+            <line x1="40" y1="220" x2="360" y2="220"/>
+            <line x1="40" y1="300" x2="360" y2="300"/>
+            <line x1="40" y1="380" x2="360" y2="380"/>
+          </g>
+          <g stroke="#0f1e3d" stroke-opacity="0.2" stroke-width="1">
+            <line x1="80" y1="40" x2="80" y2="440"/>
+            <line x1="180" y1="40" x2="180" y2="440"/>
+            <line x1="280" y1="40" x2="280" y2="440"/>
+          </g>
+
+          <path class="drift__path" d="M40,90 C110,90 130,150 130,215 C130,275 90,320 150,360 C210,400 250,370 320,410"
+                fill="none" stroke="#d24b1f" stroke-width="2.2" stroke-linecap="round"/>
+
+          <circle cx="130" cy="215" r="6" fill="#d24b1f"/>
+          <circle cx="130" cy="215" r="14" fill="none" stroke="#d24b1f" stroke-opacity="0.35"/>
+          <circle cx="150" cy="360" r="6" fill="#d24b1f"/>
+          <circle cx="150" cy="360" r="14" fill="none" stroke="#d24b1f" stroke-opacity="0.35"/>
+          <circle cx="320" cy="410" r="6" fill="#d24b1f"/>
+          <circle cx="320" cy="410" r="14" fill="none" stroke="#d24b1f" stroke-opacity="0.35"/>
+
+          <g font-family="JetBrains Mono, monospace" font-size="10" fill="#0f1e3d" letter-spacing="0.1em">
+            <text x="148" y="211">MISSED CALL</text>
+            <text x="168" y="356">FOLLOW-UP</text>
+            <text x="196" y="428">OWNER DEPENDENCY</text>
+          </g>
+
+          <g stroke="#0f1e3d" stroke-width="1.2" opacity="0.5">
+            <line x1="40" y1="30" x2="60" y2="30"/><line x1="40" y1="30" x2="40" y2="50"/>
+            <line x1="360" y1="30" x2="340" y2="30"/><line x1="360" y1="30" x2="360" y2="50"/>
+            <line x1="40" y1="450" x2="60" y2="450"/><line x1="40" y1="450" x2="40" y2="430"/>
+            <line x1="360" y1="450" x2="340" y2="450"/><line x1="360" y1="450" x2="360" y2="430"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true">
+    <span>scroll</span>
+    <span class="hero__scroll-line"></span>
+  </div>
 </section>
 
-<div class="grid">
-<div class="card">
-<h2>Calculate your opportunity</h2>
-<label>Inbound calls per month</label>
-<input id="calls" type="number" min="0" value="300">
-<label>Missed calls (%)</label>
-<input id="missed" type="number" min="0" max="100" value="25">
-<label>Average job value ($)</label>
-<input id="value" type="number" min="0" value="1000">
-<label>Estimated close rate (%)</label>
-<input id="close" type="number" min="0" max="100" value="30">
-<button onclick="calculate()">Calculate my opportunity</button>
-</div>
+<!-- WELCOME TO THE LEAK -->
+<section class="leaks" id="leaks">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-head__title">WELCOME TO THE LEAK.</h2>
+      <p class="section-head__sub">Every business has one. Click to open it up.</p>
+    </div>
 
-<div class="card">
-<h2>Your estimate</h2>
-<div id="result" class="result">Enter your numbers to see your estimate.</div>
-<div class="cta">
-<strong>Want to recover more of those leads?</strong>
-<p>See the lead-recovery, AI receptionist and follow-up systems we are comparing for HVAC businesses.</p>
-<a href="#comparison">→ See the comparison guide</a>
-</div>
-<p class="small">This calculator provides an estimate, not a guarantee. Actual results depend on lead quality, response time, close rate, job value and other factors.</p>
-</div>
-</div>
+    <div class="leaks__list" id="leaksList">
+      <article class="leak" data-leak="missed-call">
+        <div class="leak__head">
+          <span class="leak__num">01</span>
+          <h3 class="leak__title">THE MISSED-CALL LEAK</h3>
+          <span class="leak__quote">"Nobody answered."</span>
+          <span class="leak__toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="leak__body">
+          <div class="leak__q"><span>Q</span>Why does this keep happening?</div>
+          <div class="leak__q"><span>Q</span>Where does the process break?</div>
+          <div class="leak__q"><span>Q</span>Who owns the next step?</div>
+          <div class="leak__q"><span>Q</span>What is the business currently relying on a human to remember?</div>
+        </div>
+      </article>
 
-<section id="comparison" class="card" style="margin-top:22px">
-<h2>Coming next: HVAC Lead Recovery Software Guide</h2>
-<p>We are comparing tools for missed-call recovery, AI reception, lead capture, appointment booking and automated follow-up.</p>
-<p><strong>Get the free HVAC Lead Recovery Checklist</strong></p>
-<form onsubmit="return signup(event)">
-<input id="email" type="email" placeholder="Your business email" required>
-<button type="submit">Send me the checklist</button>
-</form>
-<p id="thanks" class="small"></p>
+      <article class="leak" data-leak="follow-up">
+        <div class="leak__head">
+          <span class="leak__num">02</span>
+          <h3 class="leak__title">THE FOLLOW-UP LEAK</h3>
+          <span class="leak__quote">"I'll call them tomorrow."</span>
+          <span class="leak__toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="leak__body">
+          <div class="leak__q"><span>Q</span>Why does this keep happening?</div>
+          <div class="leak__q"><span>Q</span>Where does the process break?</div>
+          <div class="leak__q"><span>Q</span>Who owns the next step?</div>
+          <div class="leak__q"><span>Q</span>What is the business currently relying on a human to remember?</div>
+        </div>
+      </article>
+
+      <article class="leak" data-leak="owner">
+        <div class="leak__head">
+          <span class="leak__num">03</span>
+          <h3 class="leak__title">THE OWNER LEAK</h3>
+          <span class="leak__quote">"Just send it to me."</span>
+          <span class="leak__toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="leak__body">
+          <div class="leak__q"><span>Q</span>Why does this keep happening?</div>
+          <div class="leak__q"><span>Q</span>Where does the process break?</div>
+          <div class="leak__q"><span>Q</span>Who owns the next step?</div>
+          <div class="leak__q"><span>Q</span>What is the business currently relying on a human to remember?</div>
+        </div>
+      </article>
+
+      <article class="leak" data-leak="team">
+        <div class="leak__head">
+          <span class="leak__num">04</span>
+          <h3 class="leak__title">THE TEAM LEAK</h3>
+          <span class="leak__quote">"I told them this already."</span>
+          <span class="leak__toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="leak__body">
+          <div class="leak__q"><span>Q</span>Why does this keep happening?</div>
+          <div class="leak__q"><span>Q</span>Where does the process break?</div>
+          <div class="leak__q"><span>Q</span>Who owns the next step?</div>
+          <div class="leak__q"><span>Q</span>What is the business currently relying on a human to remember?</div>
+        </div>
+      </article>
+
+      <article class="leak" data-leak="software">
+        <div class="leak__head">
+          <span class="leak__num">05</span>
+          <h3 class="leak__title">THE SOFTWARE LEAK</h3>
+          <span class="leak__quote">"We bought another tool."</span>
+          <span class="leak__toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="leak__body">
+          <div class="leak__q"><span>Q</span>Why does this keep happening?</div>
+          <div class="leak__q"><span>Q</span>Where does the process break?</div>
+          <div class="leak__q"><span>Q</span>Who owns the next step?</div>
+          <div class="leak__q"><span>Q</span>What is the business currently relying on a human to remember?</div>
+        </div>
+      </article>
+
+      <article class="leak" data-leak="process">
+        <div class="leak__head">
+          <span class="leak__num">06</span>
+          <h3 class="leak__title">THE PROCESS LEAK</h3>
+          <span class="leak__quote">"That's just how we've always done it."</span>
+          <span class="leak__toggle" aria-hidden="true">+</span>
+        </div>
+        <div class="leak__body">
+          <div class="leak__q"><span>Q</span>Why does this keep happening?</div>
+          <div class="leak__q"><span>Q</span>Where does the process break?</div>
+          <div class="leak__q"><span>Q</span>Who owns the next step?</div>
+          <div class="leak__q"><span>Q</span>What is the business currently relying on a human to remember?</div>
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
-</div>
 
-<script>
-function calculate(){
- const c=+document.getElementById('calls').value||0;
- const m=(+document.getElementById('missed').value||0)/100;
- const v=+document.getElementById('value').value||0;
- const r=(+document.getElementById('close').value||0)/100;
- const missed=c*m, jobs=missed*r, rev=jobs*v;
- document.getElementById('result').innerHTML =
- `<div>Estimated missed calls</div><b>${missed.toFixed(1)}</b>
- <div style="margin-top:12px">Potential jobs</div><b>${jobs.toFixed(1)}</b>
- <div style="margin-top:12px">Potential monthly revenue opportunity</div>
- <div class="big">$${rev.toLocaleString(undefined,{maximumFractionDigits:0})}</div>`;
-}
-function signup(e){
- e.preventDefault();
- document.getElementById('thanks').textContent="Demo capture is ready. Connect this form to your email platform before launch.";
- return false;
-}
-calculate();
-</script>
-</body>
-</html>
+<!-- WE DON'T START WITH AI -->
+<section class="manifesto">
+  <div class="container">
+    <div class="manifesto__head">
+      <h2 class="manifesto__big">
+        WE DON'T<br />START WITH <span class="strike">AI</span>.
+      </h2>
+      <p class="manifesto__sub">We start with what actually happens.</p>
+    </div>
+
+    <ol class="manifesto__qs">
+      <li><span class="qnum">01</span><span class="qtext">What happens?</span></li>
+      <li><span class="qnum">02</span><span class="qtext">Who does it?</span></li>
+      <li><span class="qnum">03</span><span class="qtext">Where does it break?</span></li>
+      <li><span class="qnum">04</span><span class="qtext">Why does it keep breaking?</span></li>
+      <li><span class="qnum">05</span><span class="qtext">What should happen instead?</span></li>
+    </ol>
+
+    <p class="manifesto__bridge">
+      Only after that do we ask whether AI belongs there.
+    </p>
+
+    <blockquote class="manifesto__quote">
+      <p>AUTOMATING THE WRONG PROCESS<br />DOESN'T FIX THE BUSINESS.</p>
+      <p class="manifesto__quote--second">IT JUST MAKES THE WRONG PROCESS<br />HAPPEN <em>FASTER.</em></p>
+    </blockquote>
+  </div>
+</section>
+
+<!-- THE LEAKFIX METHOD -->
+<section class="method" id="method">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-head__title">THE LEAKFIX METHOD</h2>
+      <p class="section-head__sub">A diagnostic sequence, not a sales process.</p>
+    </div>
+
+    <div class="method__grid">
+      <article class="method__step">
+        <div class="method__num">01</div>
+        <div class="method__stage">HISTORY</div>
+        <div class="method__verb">Understand</div>
+        <p class="method__desc">What is actually happening?</p>
+      </article>
+
+      <article class="method__step">
+        <div class="method__num">02</div>
+        <div class="method__stage">DIAGNOSIS</div>
+        <div class="method__verb">Find</div>
+        <p class="method__desc">Where is the leak? What is causing it?</p>
+      </article>
+
+      <article class="method__step">
+        <div class="method__num">03</div>
+        <div class="method__stage">PROGNOSIS</div>
+        <div class="method__verb">Understand the consequence</div>
+        <p class="method__desc">What happens if nothing changes?</p>
+      </article>
+
+      <article class="method__step">
+        <div class="method__num">04</div>
+        <div class="method__stage">TREATMENT</div>
+        <div class="method__verb">Design</div>
+        <p class="method__desc">Build the workflow, system, training, automation or AI solution.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SYMPTOMS AREN'T THE DIAGNOSIS -->
+<section class="symptoms">
+  <div class="container">
+    <h2 class="symptoms__title">
+      SYMPTOMS AREN'T<br /><em>THE DIAGNOSIS.</em>
+    </h2>
+
+    <div class="symptoms__grid">
+      <div class="sym">
+        <div class="sym__label">SYMPTOM</div>
+        <p class="sym__text">"I keep chasing my team."</p>
+        <div class="sym__arrow" aria-hidden="true">↓</div>
+        <div class="sym__label sym__label--diag">DIAGNOSIS</div>
+        <p class="sym__diag">The owner has become the operating system.</p>
+      </div>
+
+      <div class="sym">
+        <div class="sym__label">SYMPTOM</div>
+        <p class="sym__text">"We bought AI but nobody uses it."</p>
+        <div class="sym__arrow" aria-hidden="true">↓</div>
+        <div class="sym__label sym__label--diag">DIAGNOSIS</div>
+        <p class="sym__diag">The process was never designed.</p>
+      </div>
+
+      <div class="sym">
+        <div class="sym__label">SYMPTOM</div>
+        <p class="sym__text">"We're getting leads but not enough jobs."</p>
+        <div class="sym__arrow" aria-hidden="true">↓</div>
+        <div class="sym__label sym__label--diag">DIAGNOSIS</div>
+        <p class="sym__diag">The leak may be after the lead.</p>
+      </div>
+
+      <div class="sym">
+        <div class="sym__label">SYMPTOM</div>
+        <p class="sym__text">"Everything works when I'm around."</p>
+        <div class="sym__arrow" aria-hidden="true">↓</div>
+        <div class="sym__label sym__label--diag">DIAGNOSIS</div>
+        <p class="sym__diag">The business depends on the owner instead of the system.</p>
+      </div>
+    </div>
+
+    <p class="symptoms__close">
+      WE DON'T ASSUME THE LEAK. <em>WE INVESTIGATE IT.</em>
+    </p>
+  </div>
+</section>
+
+<!-- WE DON'T AUTOMATE CHAOS -->
+<section class="chaos">
+  <div class="chaos__inner">
+    <h2 class="chaos__title">WE DON'T<br />AUTOMATE<br /><em>CHAOS.</em></h2>
+
+    <div class="chaos__body">
+      <p>If your process is unclear, AI won't magically make it clear.</p>
+      <p>If nobody knows who owns a task, automation won't solve ownership.</p>
+      <p>If your team won't use the system, the system isn't finished.</p>
+      <p class="chaos__rule">First make the process work.<br />Then decide what should be automated.</p>
+    </div>
+
+    <div class="chaos__question">
+      <p>WHAT SHOULD <em>NOT</em> REQUIRE<br />A HUMAN TO REMEMBER?</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE FIX LAB -->
+<section class="lab" id="lab">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-head__title">THE FIX LAB</h2>
+      <p class="section-head__sub">Tools for finding the leak yourself. No login. No email wall. No bullshit.</p>
+    </div>
+
+    <div class="lab__grid">
+      <article class="lab__tool">
+        <div class="lab__tag">TOOL 01</div>
+        <h3 class="lab__name">LEAK DETECTOR</h3>
+        <p class="lab__desc">Find weak points in your business workflow.</p>
+        <p class="lab__micro">Something is leaking. Let's find it.</p>
+        <a href="#diagnostic" class="lab__cta">
+          <span>Start diagnosis</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="lab__tool">
+        <div class="lab__tag">TOOL 02</div>
+        <h3 class="lab__name">LEAD RECOVERY CALCULATOR</h3>
+        <p class="lab__desc">See how much revenue could be sitting inside missed calls.</p>
+        <p class="lab__micro">Your spreadsheet has secrets.</p>
+        <a href="#diagnostic" class="lab__cta">
+          <span>Calculate the leak</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="lab__tool">
+        <div class="lab__tag">TOOL 03</div>
+        <h3 class="lab__name">AI READINESS CHECK</h3>
+        <p class="lab__desc">Should this process actually have AI?</p>
+        <p class="lab__micro">Before you buy another AI tool… find out if you actually need one.</p>
+        <a href="#diagnostic" class="lab__cta">
+          <span>Check your process</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="lab__tool">
+        <div class="lab__tag">TOOL 04</div>
+        <h3 class="lab__name">WORKFLOW MAPPER</h3>
+        <p class="lab__desc">Show us how something currently gets done.</p>
+        <p class="lab__micro">We'll redraw it. You'll see the leak.</p>
+        <a href="#diagnostic" class="lab__cta">
+          <span>Map it</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+
+      <article class="lab__tool lab__tool--wide">
+        <div class="lab__tag">TOOL 05</div>
+        <h3 class="lab__name">BUSINESS DIAGNOSTIC</h3>
+        <p class="lab__desc">Can't find the problem? Good. That's usually the real starting point.</p>
+        <p class="lab__micro">Give us the messy version.</p>
+        <a href="#diagnostic" class="lab__cta">
+          <span>Show us the mess</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section class="founder" id="founder">
+  <div class="container founder__grid">
+    <div class="founder__left">
+      <span class="eyebrow">ABOUT</span>
+      <h2 class="founder__title">
+        WHY DOES A<br />DENTIST CARE<br />ABOUT <em>BUSINESS<br />SYSTEMS?</em>
+      </h2>
+    </div>
+    <div class="founder__right">
+      <p class="founder__lead">Because I spent years watching skilled people do skilled work inside systems that were quietly working against them.</p>
+
+      <p>I'm a former dental surgeon. No MBA. No engineering background. I now run an education and immigration business that runs on automation, and I work in online commerce management.</p>
+
+      <p>Over time I developed a habit:</p>
+
+      <ul class="founder__habit">
+        <li>Write down what happens.</li>
+        <li>Where it happens.</li>
+        <li>When it happens.</li>
+        <li>Who does it.</li>
+        <li>What happens next.</li>
+      </ul>
+
+      <p>Once you document a process, invisible problems become visible.</p>
+
+      <p>I became fascinated by process design and early industrial automation — breaking work into repeatable steps, reducing variation, reducing errors, and allowing people to become exceptionally good at what they repeatedly do.</p>
+
+      <p>Businesses need the same thinking.</p>
+
+      <p class="founder__method">HISTORY → DIAGNOSIS → PROGNOSIS → TREATMENT</p>
+
+      <p class="founder__close">"I find this stuff fun.<br />So I decided to spread it."</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="container">
+    <div class="section-head">
+      <h2 class="section-head__title">WHAT HAPPENS WHEN<br />THE SYSTEM WORKS?</h2>
+    </div>
+
+    <div class="
