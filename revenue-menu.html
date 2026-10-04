@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeakFix — Revenue Menu Builder</title>
+<meta name="description" content="Build a Good, Better, Best service menu for your business.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;color:#0f1e3d;background:#f4ece1;line-height:1.6}.wrap{max-width:1180px;margin:auto;padding:0 24px}.nav{padding:22px 0;border-bottom:1px solid rgba(15,30,61,.15)}.navin{display:flex;justify-content:space-between;align-items:center}.logo{font:500 14px "JetBrains Mono",monospace;letter-spacing:.08em}.logo b{display:inline-block;width:10px;height:10px;background:#d24b1f;border-radius:50%;margin-right:9px}.back{font-size:13px}.hero{padding:80px 0 45px}.eyebrow{font:500 11px "JetBrains Mono",monospace;letter-spacing:.18em;color:#d24b1f;text-transform:uppercase}.hero h1{font:400 clamp(48px,7vw,86px) Fraunces,Georgia,serif;line-height:.96;letter-spacing:-.035em;margin:18px 0 25px}.hero h1 em{color:#d24b1f}.hero p{max-width:650px;font-size:19px;color:#2a3d63}.grid{display:grid;grid-template-columns:420px 1fr;gap:24px;align-items:start;padding-bottom:90px}.panel,.preview{background:#faf5ec;border:1px solid rgba(15,30,61,.16);box-shadow:0 24px 50px -35px rgba(15,30,61,.35)}.panel{padding:30px;position:sticky;top:20px}.panel h2,.preview h2{font:400 28px Fraunces,Georgia,serif;margin-bottom:22px}.field{margin-bottom:18px}.field label{display:block;font:500 10px "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;margin-bottom:7px;color:#2a3d63}.field input,.field textarea{width:100%;border:1px solid rgba(15,30,61,.25);background:#fffaf2;padding:12px 13px;font:15px Inter,sans-serif;color:#0f1e3d;border-radius:3px}.field textarea{min-height:72px;resize:vertical}.btn{display:inline-flex;border:0;background:#0f1e3d;color:#f4ece1;padding:14px 20px;font-weight:600;cursor:pointer;width:100%;justify-content:center;margin-top:4px}.hint{font-size:12px;color:#64708a;margin-top:10px}.preview{padding:34px}.previewtop{display:flex;justify-content:space-between;gap:15px;border-bottom:1px solid rgba(15,30,61,.18);padding-bottom:20px;margin-bottom:22px}.tag{font:500 10px "JetBrains Mono",monospace;letter-spacing:.14em;color:#d24b1f}.service{font:400 34px Fraunces,Georgia,serif}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.card{border:1px solid rgba(15,30,61,.2);padding:22px;min-height:320px;display:flex;flex-direction:column;background:#fffaf2}.card:nth-child(2){border:2px solid #d24b1f}.badge{font:500 9px "JetBrains Mono",monospace;letter-spacing:.12em;color:#d24b1f;margin-bottom:16px}.card h3{font:400 25px Fraunces,Georgia,serif;line-height:1.05;margin-bottom:13px}.card .why{font-size:13px;color:#2a3d63;margin-bottom:18px}.includes{font-size:13px;margin-top:auto}.includes div{padding:8px 0;border-top:1px dashed rgba(15,30,61,.18)}.price{font:500 22px "JetBrains Mono",monospace;margin-top:17px;color:#0f1e3d}.script{margin-top:18px;padding:20px;background:#0f1e3d;color:#f4ece1}.script .tag{color:#c99a3a}.script p{font:italic 16px Fraunces,Georgia,serif;margin-top:9px}.note{margin-top:18px;font-size:13px;color:#64708a}.footer{padding:35px 0 55px;border-top:1px solid rgba(15,30,61,.15);font-size:12px;color:#64708a}@media(max-width:850px){.grid{grid-template-columns:1fr}.panel{position:static}.cards{grid-template-columns:1fr}.hero{padding-top:55px}.preview{padding:22px}}@media(max-width:520px){.previewtop{display:block}.service{margin-top:8px;font-size:28px}.card{min-height:auto}.hero h1{font-size:48px}}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="wrap navin"><div class="logo"><b></b>LEAKFIX</div><a class="back" href="index.html#lab">← Back to Fix Lab</a></div></nav>
+<main>
+<section class="hero"><div class="wrap"><span class="eyebrow">FIX LAB / TOOL 05</span><h1>BUILD YOUR <em>REVENUE MENU.</em></h1><p>Turn one customer problem into three clear choices. Give people options instead of an ultimatum — then let the menu do the selling.</p></div></section>
+<section class="wrap grid">
+<div class="panel">
+<h2>Build the menu</h2>
+<div class="field"><label>Service / problem</label><input id="service" value="AC Repair"></div>
+<div class="field"><label>Essential — Good</label><textarea id="good">Fix the immediate problem so the system works today.</textarea></div>
+<div class="field"><label>Preventative — Better</label><textarea id="better">Everything in Good + tune-up + protection + maintenance plan.</textarea></div>
+<div class="field"><label>Total Comfort — Best</label><textarea id="best">Everything in Better + comfort assessment + priority service + future repair savings.</textarea></div>
+<div class="field"><label>Good price</label><input id="p1" value="$200–$400"></div>
+<div class="field"><label>Better price</label><input id="p2" value="$600–$900"></div>
+<div class="field"><label>Best price</label><input id="p3" value="$1,200–$1,800"></div>
+<button class="btn" id="build">Update my menu →</button>
+<p class="hint">Your menu stays in this browser. Nothing is sent anywhere.</p>
+</div>
+<div class="preview">
+<div class="previewtop"><div><div class="tag">CUSTOMER MENU</div><div class="service" id="outService">AC Repair</div></div><div class="tag">GOOD / BETTER / BEST</div></div>
+<div class="cards">
+<article class="card"><div class="badge">OPTION 01 · GOOD</div><h3>Essential Repair</h3><p class="why">Get the immediate problem fixed today.</p><div class="includes"><div id="outGood">Fix the immediate problem so the system works today.</div></div><div class="price" id="outP1">$200–$400</div></article>
+<article class="card"><div class="badge">OPTION 02 · BETTER · RECOMMENDED</div><h3>Preventative Care</h3><p class="why">Fix it now and reduce the chance of the same problem returning.</p><div class="includes"><div id="outBetter">Everything in Good + tune-up + protection + maintenance plan.</div></div><div class="price" id="outP2">$600–$900</div></article>
+<article class="card"><div class="badge">OPTION 03 · BEST</div><h3>Total Comfort</h3><p class="why">Handle the bigger picture and give the homeowner more protection.</p><div class="includes"><div id="outBest">Everything in Better + comfort assessment + priority service + future repair savings.</div></div><div class="price" id="outP3">$1,200–$1,800</div></article>
+</div>
+<div class="script"><div class="tag">TECH SCRIPT</div><p>“I've found the issue. I've put together a few options so you can decide what works best for your home and your budget. Which one feels right to you?”</p></div>
+<p class="note">The goal isn't to push the most expensive option. It's to make the choices clear enough for the customer to make the decision.</p>
+</div>
+</section>
+</main>
+<footer class="footer"><div class="wrap">LeakFix · Diagnose first. Design the fix.</div></footer>
+<script>
+function v(id){return document.getElementById(id).value.trim()}
+document.getElementById('build').addEventListener('click',function(){
+ document.getElementById('outService').textContent=v('service')||'Your Service';
+ document.getElementById('outGood').textContent=v('good');
+ document.getElementById('outBetter').textContent=v('better');
+ document.getElementById('outBest').textContent=v('best');
+ document.getElementById('outP1').textContent=v('p1');
+ document.getElementById('outP2').textContent=v('p2');
+ document.getElementById('outP3').textContent=v('p3');
+});
+</script>
+</body>
+</html>
