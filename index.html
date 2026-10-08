@@ -1023,7 +1023,11 @@ em { font-style: italic; }
         <p>My team operates without constantly needing me.</p>
         <p>No endless meetings.<br />No daily chasing.<br />No artificial targets just to keep people busy.</p>
       </div>
-      <div class="proof__col">
+      <div class="proof__col"></div>
+    </div>
+  </div>
+</section>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const navToggle = document.getElementById('navToggle');
@@ -1037,6 +1041,30 @@ document.addEventListener('DOMContentLoaded', function () {
       if (links) links.classList.toggle('is-open', isOpen);
     });
   }
+
+  const links = nav ? nav.querySelectorAll('.nav__links a') : [];
+  links.forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (navToggle && navToggle.classList.contains('is-open')) {
+        navToggle.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        if (nav) nav.classList.remove('menu-open');
+        const menu = nav ? nav.querySelector('.nav__links') : null;
+        if (menu) menu.classList.remove('is-open');
+      }
+    });
+  });
+
+  // Keep the leak accordions reliable on mobile as well.
+  document.querySelectorAll('.leak').forEach(function (leak) {
+    const summary = leak.querySelector('.leak__head');
+    if (!summary) return;
+    summary.addEventListener('click', function () {
+      setTimeout(function () {
+        leak.classList.toggle('is-open', leak.open);
+      }, 0);
+    });
+  });
 
   window.addEventListener('scroll', function () {
     if (nav) nav.classList.toggle('is-scrolled', window.scrollY > 20);
